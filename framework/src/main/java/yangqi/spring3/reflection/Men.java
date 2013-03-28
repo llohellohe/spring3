@@ -20,6 +20,22 @@ public class Men extends Person {
 
     public int[]     grades;
 
+    static {
+        System.out.println("INIT STATIC OF MEN");
+    }
+
+    public Men() {
+        System.out.println("MEN I AM COMMON INIT ");
+    }
+
+    public Men(int i) {
+        System.out.println("MEN I AM INT INIT WITH " + i);
+    }
+
+    public Men(String s, int i) {
+        System.out.println("MEN I AM STRING INT INIT WITH " + s + " " + i);
+    }
+
     public String getPrivateMenName() {
         return privateMenName;
     }
