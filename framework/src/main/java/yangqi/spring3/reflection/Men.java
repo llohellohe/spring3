@@ -36,6 +36,17 @@ public class Men extends Person {
         System.out.println("MEN I AM STRING INT INIT WITH " + s + " " + i);
     }
 
+    public void call() {
+        Throwable t = new Throwable();
+        t.printStackTrace();
+
+        StackTraceElement[] eles = t.getStackTrace();
+        for (StackTraceElement e : eles) {
+            System.out.println(e.getClassName() + " " + e.getFileName() + " " + e.getLineNumber() + " "
+                               + e.getMethodName());
+        }
+    }
+
     public String getPrivateMenName() {
         return privateMenName;
     }
