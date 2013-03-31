@@ -20,6 +20,12 @@ public class CallStack {
         // TODO Auto-generated method stub
         Men m = new Men();
         m.call();
+        ClassLoader cl = m.getClass().getClassLoader();
+
+        while (cl != null) {
+            System.out.println("CL IS " + cl);
+            cl = cl.getClass().getClassLoader();
+        }
     }
 
 }
