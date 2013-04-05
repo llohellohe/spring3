@@ -59,6 +59,17 @@ public class MyClassLoader extends ClassLoader {
 
         c.newInstance();
 
+        ClassLoader p = mcl.getParent();
+        String name = p.toString();
+        while (p != null) {
+            System.out.println("PARENT IS " + p);
+            if (name.contains("sun.misc.Launcher$AppClassLoader")) {
+                break;
+            }
+            p = mcl.getParent();
+            name = p.toString();
+        }
+
 
     }
 

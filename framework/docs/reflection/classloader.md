@@ -1,4 +1,20 @@
 ####ClassLoader
+
+类的生命周期参看：[类和对象的生命周期](http://www.hiyangqi.com/JVM/jvm-class-lifecycle.html)
+
+ClassLoader的loadClass方法，可以简单的可以对应到类初始化的生命周期三步：
+
+1.	装载 findClass()
+2.	连接(验证，准备，解析(resolvedClass))
+3.	初始化 这一步在loadClass的时候并不会执行，也就是说loadClass后的类是不会调用静态初始化方法的<clinit>，只有在class.newInstance()的时候才会初始化。
+
+具体的步骤是，调用ClassLoader的公开方法loadClass(String name)后，会经过以下步骤：
+
+1.	调用 findLoadedClass()判断类是否已经加载，最终会调用native的findLoadedClass0（）方法。
+2.	如果步骤1找到了的话，按需解析class。否则调用父class loader的loadClass()方法。这样就实现了代理加载。
+3.	如果没找到，则调用findClass()方法，先找到字节数组，然后调用defineClass方法，将字节数组转化成Class定义。否则抛出ClassNotFoundException 。
+
+
 ###一.findClass
 
 抽象类 ClassLoader中定义了寻找类的方法：
@@ -34,3 +50,11 @@ loadClass方法:
 
 它通过提供的URL来findClass，然后通过defineClass获得类定义。
 
+
+###四.Class
+使用Class.forName也可以获得一个类的定义。
+
+1.	forName(String name)：内部调用native 的 forName0(String name,true,ClassLoader.getCallerClassLoader())
+2.	forName(String name,boolean initialize,ClassLoader cl)
+
+其中如果initialize为true，则会初始化类的静态初始化语句<clinit>
