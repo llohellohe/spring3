@@ -58,3 +58,5 @@ loadClass方法:
 2.	forName(String name,boolean initialize,ClassLoader cl)
 
 其中如果initialize为true，则会初始化类的静态初始化语句<clinit>
+
+参考[URLClassLoader](https://github.com/llohellohe/spring3/blob/master/framework/src/main/java/yangqi/spring3/reflection/RunURLClassLoader.java)
