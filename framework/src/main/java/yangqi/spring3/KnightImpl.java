@@ -7,11 +7,15 @@
  */
 package yangqi.spring3;
 
+import org.springframework.beans.factory.InitializingBean;
+
 /**
  * 类Knight.java的实现描述：TODO 类实现描述 
  * @author yangqi 2013-3-24 下午9:34:50
  */
-public class KnightImpl implements Knight {
+public class KnightImpl implements Knight, InitializingBean {
+    
+    static Knight instance = new KnightImpl();
 
     static {
         System.out.println("I am initing");
@@ -22,5 +26,27 @@ public class KnightImpl implements Knight {
     }
     public void embarkOnQuest(){
        System.out.println("hello yangqi"); 
+    }
+    
+    public static Knight instance() {
+        return instance;
+    }
+
+    public void init() {
+        System.out.println("I AM INIT METHOD");
+    }
+
+    public void destory() {
+        System.out.println("I AM DESTORY METHOD");
+    }
+
+    /*
+     * (non-Javadoc)
+     * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
+     */
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("afterPropertiesSet");
+
     }
 }

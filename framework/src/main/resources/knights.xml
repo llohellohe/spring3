@@ -2,7 +2,32 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.springframework.org/schema/beans
-     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-  <bean id="knight" class="yangqi.spring3.KnightImpl">
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" >
+     
+  <bean id="knight" class="yangqi.spring3.KnightImpl"/>
+  
+  <bean id="prototypeKnight" class="yangqi.spring3.KnightImpl"  scope="prototype"  init-method="init"/>
+  
+  <bean id="collectionBean" class="yangqi.spring3.CollectionBean">
+  	<property name="stringList">
+  		<list>
+  			<value>book</value>
+  			<value>car</value>
+  		</list>
+  	</property>
+  	
+  	<property name="stringSet">
+  		<set>
+  			<value>bookSet</value>
+  			<value>carSet</value>
+  		</set>
+  	</property>
+  	
+  	<property name="map">
+  		<map>
+  			<entry key="key1" value="1"/>
+  			<entry key="key2"  value="2"/>
+  		</map>
+  	</property>
   </bean>
  </beans>
