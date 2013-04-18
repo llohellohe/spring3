@@ -115,4 +115,5 @@ bean引用:
 @Qualifier 使用byName 组装
 @Value 用于注入primitive的值，如String int等
 @Component 用于定义一个bean
-
+[参考教程](http://www.ibm.com/developerworks/cn/java/j-lo-spring25-ioc/)
+[代码实例](https://github.com/llohellohe/spring3/blob/master/framework/src/main/java/yangqi/spring3/anno/AnnoMain.java)
