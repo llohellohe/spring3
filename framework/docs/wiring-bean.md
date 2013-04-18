@@ -101,3 +101,18 @@ bean引用:
 	
 ###四.Spring Expressiong Language
 通过spEL可以实现更加复杂的表达是配置，#{} 内表示的就是spEL语句。它可以做数学运算，字符串等处理    
+    
+###五.自动组装
+通过指定autowire属性可以自动组装bean，而不需要通过property标签强制指定.
+
+一共有四种组装方式：
+
+1.	byName
+2.	byType
+3.	constructor
+4.	autodetecd 先尝试 by constructor然后再尝试byType###六.使用Annotiaon组装
+@Autowired 默认使用byType组装，可以通过指定属性required=false来处理NULL的情况。
+@Qualifier 使用byName 组装
+@Value 用于注入primitive的值，如String int等
+@Component 用于定义一个bean
+

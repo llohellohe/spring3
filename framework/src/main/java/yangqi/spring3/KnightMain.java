@@ -62,6 +62,8 @@ public class KnightMain {
 
         System.out.println("SET: " + collection.getStringSet());
 
+        System.out.println(collection.getKnight());
+
     }
 
     private static void singletonAndPrototype() {

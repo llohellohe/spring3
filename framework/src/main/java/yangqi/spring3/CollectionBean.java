@@ -21,6 +21,8 @@ public class CollectionBean {
     private Set<String>          stringSet;
     private Map<String, Integer> map;
 
+    private Knight               knight;
+
     public List<String> getStringList() {
         return stringList;
     }
@@ -43,6 +45,14 @@ public class CollectionBean {
 
     public void setMap(Map<String, Integer> map) {
         this.map = map;
+    }
+
+    public Knight getKnight() {
+        return knight;
+    }
+
+    public void setKnight(Knight knight) {
+        this.knight = knight;
     }
 
 }
