@@ -76,4 +76,6 @@ DI是为了对象间的解耦，AOP是为了将横切关注点和应用的对象
 	  </aop:config>
 
 
-其中<aop:before>、<aop:after>等定义了不同类型的通知，切入点为执行perform方法的时候，具体代码实例可以参看[这里](http://)。
+其中<aop:before>、<aop:after>等定义了不同类型的通知，切入点为执行perform方法的时候，具体代码实例可以参看[这里](https://github.com/llohellohe/spring3/blob/master/framework/src/main/java/yangqi/spring3/aop/AopMain.java)。
+
+除了通过XML来定义AOP外，还可以使用annotaion来使用AOP。
