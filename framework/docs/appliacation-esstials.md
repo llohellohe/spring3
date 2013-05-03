@@ -111,6 +111,7 @@ TransactionDefinition的方法如下：
 
 
 ####(三).源码分析
+#####(1).DataSourceTransactionManager
 类图如下：
 
 ![image](https://raw.github.com/llohellohe/spring3/master/framework/docs/transaction-class.png)
@@ -142,6 +143,32 @@ TransactionDefinition的方法如下：
 Object getResourceFactory(); 方法获得资源工厂。
 
 DataSourceTransactionManager继承了DataSourceTransactionManager类，实现了接口ResourceTransactionManager和InitializingBean
+
+#####(1).TransactionTemplate
+
+类图：
+
+
+TransactionTemplate继承了DefaultTransactionDefinition，实现了接口TransactionOperations和InitializingBean。
+
+接口TransactionOperations 定义了事务的基本行为：
+
+	<T> T execute(TransactionCallback<T> action) throws TransactionException;
+
+接口TransactionCallback 定义了事务中的操作：
+
+	T doInTransaction(TransactionStatus status);
+	
+DefaultTransactionDefinition 定义了默认的事务（传播行为为PROPAGATION_REQUIRE,隔离级别为默认，超时为-1,非只读）。
+
+TransactionTemplate通过PlatformTransactionManager来获得事务，执行事务和提交事务。
+
+它有个重要的方法：
+
+	public <T> T execute(TransactionCallback<T> action) throws TransactionException ;
+	
+
+
 
 
 [参考资料](http://www.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/index.html)
