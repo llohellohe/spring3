@@ -147,6 +147,7 @@ DataSourceTransactionManager继承了DataSourceTransactionManager类，实现了
 #####(1).TransactionTemplate
 
 类图：
+![image](https://raw.github.com/llohellohe/spring3/master/framework/docs/transaction-template.png)
 
 
 TransactionTemplate继承了DefaultTransactionDefinition，实现了接口TransactionOperations和InitializingBean。
