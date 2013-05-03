@@ -55,7 +55,7 @@ JNDI(Java Naming and Directory Interface),[参考](http://blog.csdn.net/adverse/
        
  在代码中使用TransactionTemplate的excute方法来达到事务的功能。
  
-#####声明式事务
+#####(二).声明式事务
  声明式事务通过Spring AOP实现。
  
  接口TransactionDefinition 定义了事务的传播行为(propagation behavior)和隔离级别(isolation level)。
@@ -68,7 +68,7 @@ TransactionDefinition的方法如下：
 4.	boolean isReadOnly();是否只读事务
 5.	String getName();获得事务名称 
  
-#####(一).传播行为 事务的传播行为（propagation）：定义了何时该新起或者挂起一个事务，或者何时改使用已经存在的事务。
+#####(1).传播行为 事务的传播行为（propagation）：定义了何时该新起或者挂起一个事务，或者何时改使用已经存在的事务。
  
 1.	PROPAGATION_MANDATORY：方法必须在事务中执行，否则抛出异常。
 2.	PROPAGATION_NEVER：从不在事务中执行，否则抛出异常。
@@ -81,7 +81,7 @@ TransactionDefinition的方法如下：
 事务的传播行为定义在TransactionDefinition 接口中。
 
 
-#####(二).隔离性
+#####(2).隔离性
 
 并发可能导致以下的问题：
 
@@ -100,14 +100,44 @@ TransactionDefinition的方法如下：
 隔离级别同样定义在TransactionDefinition中。
 
 
-#####(三).超时时间
+#####(3).超时时间
 定义事务的超时时间，如果超时时间到了，则该事务被自动回滚。
 
-#####(四).只读属性
+#####(4).只读属性
 标注事务是只读还是读写，可以讲事务标注为只读，以提高性能。
 
-#####(五).回滚规则
+#####(5).回滚规则
 默认抛异常时（check and uncheck exception），事务将被回滚，通过回滚规则可以定义回滚的行为，比如只在某些异常的时候才回滚事务，而不是所有异常均回滚。
+
+
+####(三).源码分析
+接口 PlatformTransactionManager 定义了:
+
+1.	获得事务状态：TransactionStatus getTransaction(TransactionDefinition definition) throws TransactionException;
+2.	回滚事务：void commit(TransactionStatus status) throws TransactionException;
+3.	提交事务：void rollback(TransactionStatus status) throws TransactionException;
+
+
+接口TransactionStatus定义了事务的状态，
+
+1.	是否新事务：boolean isNewTransaction();
+2.	是否有保存点：boolean hasSavepoint();
+3.	设置回滚：void setRollbackOnly();
+4.	是否只回滚：boolean isRollbackOnly();
+5.	刷新：void flush();
+6.	是否完成：boolean isCompleted();
+
+接口TransactionStatus继承了接口SavepointManager，在改接口中定义了:
+
+1.	创建保存点：Object createSavepoint() throws TransactionException;
+2.	回滚到保存点：void rollbackToSavepoint(Object savepoint) throws TransactionException;
+3.	释放保存点：void releaseSavepoint(Object savepoint) throws TransactionException;
+
+接口ResourceTransactionManager继承了PlatformTransactionManager，添加了:
+
+Object getResourceFactory(); 方法获得资源工厂。
+
+DataSourceTransactionManager继承了DataSourceTransactionManager类，实现了接口ResourceTransactionManager和InitializingBean
 
 
 [参考资料](http://www.ibm.com/developerworks/cn/education/opensource/os-cn-spring-trans/index.html)
