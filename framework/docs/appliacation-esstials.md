@@ -111,6 +111,10 @@ TransactionDefinition的方法如下：
 
 
 ####(三).源码分析
+类图如下：
+
+![image](https://raw.github.com/llohellohe/spring3/master/framework/docs/transaction-class.png)
+
 接口 PlatformTransactionManager 定义了:
 
 1.	获得事务状态：TransactionStatus getTransaction(TransactionDefinition definition) throws TransactionException;
