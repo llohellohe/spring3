@@ -1,4 +1,4 @@
-###概述
+###一.概述
 MBean代表需要被管理的设备、程序等。JVM也提供了一系列的MXBean,通过MXBean可以观察JVM的一些运行数据。
 
 MBean包含：
@@ -16,7 +16,7 @@ JMX规范定义了5种MBean：
 5.	MXMBean
 
 
-###Standard MBean
+###二.Standard MBean
 
 标准的MBean以XXMBean为接口名，名为XX的类实现XXMBean这个接口。
 
@@ -45,7 +45,7 @@ JMX规范定义了5种MBean：
 
 [StandardMBean实例代码参考这里](https://github.com/llohellohe/spring3/blob/master/framework/src/main/java/yangqi/spring3/mbean/HelloMBeanRunner.java)。
 
-###MXBean
+###三.MXBean
 标准的MBean只能支持原始属性的属性值，不能支持对象属性，MXBean则提供了这个扩展。
 
 它将对象的属性封装成`javax.management.openmbean.CompositeDataSupport` 。
@@ -62,7 +62,7 @@ JDK自带了多种MXBean，通过ManagementFactory可以获得这些MXBean。
 6.	RuntimeMXBean 获得运行时的一些相关数据,class path,vm版本号等。
 7.	ThreadMXBean 获得线程相关的一些数据。
 
-###Spring 3 中的MBean
+###四.Spring 3 中的MBean
 通过Annotation能够方便的在Spring中声明一个MBean。
 
 	@ManagedResource(objectName = "yangqi.spring3.mbean:name=SpringMBeanTest", description = "My Managed Bean")
@@ -84,7 +84,7 @@ JDK自带了多种MXBean，通过ManagementFactory可以获得这些MXBean。
 	    
 就可以完成相应的MBean注册。
 
-参考代码：
+[参考代码](https://github.com/llohellohe/spring3/blob/master/framework/src/main/java/yangqi/spring3/mbean/SpringMBeanMain.java)
 
 ###附录
 1.官方教程：http://docs.oracle.com/javase/tutorial/jmx/mbeans/index.html
