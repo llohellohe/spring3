@@ -7,6 +7,10 @@
  */
 package yangqi.spring3.mbean;
 
+import java.util.Date;
+
+import yangqi.spring3.mbean.mxbean.QueueSample;
+
 /**
  * 类Hello.java的实现描述：TODO 类实现描述 
  * @author yangqi 2013-5-17 下午7:46:48
@@ -38,6 +42,15 @@ public class Hello implements HelloMBean{
     private final String name = "Reginald"; 
     private int cacheSize = DEFAULT_CACHE_SIZE; 
     private static final int 
-        DEFAULT_CACHE_SIZE = 200; 
+ DEFAULT_CACHE_SIZE = 200;
+
+    /*
+     * (non-Javadoc)
+     * @see yangqi.spring3.mbean.HelloMBean#getQueueSample()
+     */
+    @Override
+    public QueueSample getQueueSample() {
+        return new QueueSample(new Date(), 2, "hello");
+    }
 
 }

@@ -43,11 +43,10 @@ JMX规范定义了5种MBean：
 
 在jconsole中还可以动态调用方法。
 
-	
+[StandardMBean实例代码参考这里](https://github.com/llohellohe/spring3/blob/master/framework/src/main/java/yangqi/spring3/mbean/HelloMBeanRunner.java)。
 
-可以注册一个MBean 的 Server。
-
-注册MBean需要一个ObjectName,因此
+###MXBean
+标准的MBean只能支持原始属性的属性值，不能支持对象属性，MXBean则提供了这个扩展。
 
 ###附录
 1.官方教程：http://docs.oracle.com/javase/tutorial/jmx/mbeans/index.html

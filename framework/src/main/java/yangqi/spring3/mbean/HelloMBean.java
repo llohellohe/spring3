@@ -5,6 +5,8 @@
  */
 package yangqi.spring3.mbean;
 
+import yangqi.spring3.mbean.mxbean.QueueSample;
+
 /**
  * 类HelloMBean.java的实现描述：TODO 类实现描述 
  * @author yangqi 2013-5-17 下午7:44:20
@@ -16,6 +18,8 @@ public interface HelloMBean {
     public int add(int x, int y);
 
     public String getName();
+
+    public QueueSample getQueueSample();
 
     public int getCacheSize();
 
