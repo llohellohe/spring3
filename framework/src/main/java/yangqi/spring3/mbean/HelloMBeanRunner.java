@@ -20,7 +20,7 @@ public class HelloMBeanRunner {
     public static void main(String[] args) throws Exception {
 
         MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
-        ObjectName name = new ObjectName("yangqi.mbean:type=Hello");
+        ObjectName name = new ObjectName("yangqi.mbean:name=Hello");
         Hello mbean = new Hello();
         mbs.registerMBean(mbean, name);
 
