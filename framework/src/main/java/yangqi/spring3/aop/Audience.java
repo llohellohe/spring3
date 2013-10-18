@@ -32,6 +32,10 @@ public class Audience {
         System.out.println("Boo! We want our money back!");
     }
 
+    public void sleep() {
+        System.out.println("sleeping");
+    }
+
     public void watchPerformance(ProceedingJoinPoint joinpoint) {
           try {
             System.out.println("WATCHING=============");

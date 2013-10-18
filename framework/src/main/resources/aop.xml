@@ -12,18 +12,26 @@
   <bean id="performer"
       class="yangqi.spring3.aop.Performer" />
       
+  <bean id="human"
+      class="yangqi.spring3.aop.anno.Human" />
       
- 
+  <bean id="dog"
+      class="yangqi.spring3.aop.anno.Dog" />
+      
+  <bean id="sleepHelper"
+      class="yangqi.spring3.aop.anno.SleepHelper" />
+      
+<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
  <aop:config>
   
   	<aop:aspect ref="audience">
   	
   	<aop:pointcut id="performance" expression="execution(* yangqi.spring3.aop.Performer.perform(..))"/>
   	
-	  	<aop:before pointcut="execution(* yangqi.spring3.aop.Performer.perform(..))" method="takeSeats" />
-	    <aop:before pointcut="execution(* yangqi.spring3.aop.Performer.perform(..))" method="turnOffCellPhones" />
+	  	<aop:before pointcut-ref="performance" method="takeSeats" />
+	    <aop:before pointcut-ref="performance" method="turnOffCellPhones" />
 	    <aop:after-returning pointcut-ref="performance" method="applaud" />
-	    <aop:after-throwing pointcut="execution(* yangqi.spring3.aop.Performer.perform(..))" method="demandRefund" />
+	    <aop:after-throwing pointcut-ref="performance" method="demandRefund" />
 	    
 	    <aop:around pointcut-ref="performance"  method="watchPerformance" />
 	    
