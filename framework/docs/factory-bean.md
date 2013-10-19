@@ -13,3 +13,5 @@ FactoryBean接口定义了三个方法：
 如果要获得FactoryBean实例本身，则需要在bean名称前加&
 
 	ApplicationContext.getBean("&car");
+	
+实例代码参看[CarBeanFactory](https://github.com/llohellohe/spring3/blob/master/framework/src/main/java/yangqi/spring3/CarFactoryBean.java)
