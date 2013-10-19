@@ -52,7 +52,10 @@ advisor是aspect的模块化完整表示，包含advice和pointcut。
 
 aspect包含advice和pointcut。
 
-####(五).Weaving 织入
+####(五).introduction 引入
+通过introduction可以使类引入额外的接口或者属性，而不改变其源代码。
+
+####(六).Weaving 织入
 weaving是指应用aspect到目标类中，生成代理类的过程。
 
 weaving可以发生在编译时、类加载时和运行时。
@@ -64,7 +67,7 @@ annotation的用法可以参看[SleepHelper](https://github.com/llohellohe/sprin
 
 其中@Pointcut注解的是个空方法（作为注解的载体），方法名即这个pointcut名称。
 
-待补充4.4.3和4.5
+Spring AOP并不是最强的AOP框架，更多更强的AOP功能，可以使用AspectJ。
 
 
 ####参考资料
