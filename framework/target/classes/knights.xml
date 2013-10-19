@@ -30,4 +30,8 @@
   		</map>
   	</property>
   </bean>
+  
+  <bean id="car" class="yangqi.spring3.CarFactoryBean">
+  	<property name="colors" value="red,black"/>
+  </bean>
  </beans>

@@ -1,5 +1,9 @@
 Spring Schema允许自定义schema来定义一个bean。而不是使用传统的bean定义方式。
 
+比如：
+
+	<aop:aspectj-autoproxy/>
+
 创建的步骤很简单：
 
 1.	创建XSD文件，描述bean的定义标签。
