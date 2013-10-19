@@ -1,4 +1,4 @@
-Spring Schema允许自定义schema来定义一个bean。
+Spring Schema允许自定义schema来定义一个bean。而不是使用传统的bean定义方式。
 
 创建的步骤很简单：
 
